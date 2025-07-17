@@ -28,7 +28,7 @@ class OnCampus():
     def get_details(self):
         return f"ID: {self.id}, Name: {self.name}, Email: {self.email}"
     
-class Student(Person):
+class Student(OnCampus):
     """Represents a student, with major, year, and enrolled courses."""
     def __init__(self, id, name, email, major, year, courses=None):
         super().__init__(id, name, email)
@@ -43,7 +43,7 @@ class Student(Person):
         base = super().get_details()
         return f"{base}, Major: {self.major}, Year: {self.year}, Courses enrolled: {self.courses}"
 
-class Faculty(Person):
+class Faculty(OnCampus):
     """Represents faculty, with department, title, and list of advisees."""
     def __init__(self, name: str, email: str, id_number: str, department: str, title: str, advisees=None):
         super().__init__(name, email, id_number)
@@ -59,7 +59,7 @@ class Faculty(Person):
         advisee_names = [s.name for s in self.advisees]
         return f"{base}, Department: {self.department}, Title: {self.title}, Advisees: {advisee_names}"
 
-class Staff(Person):
+class Staff(OnCampus):
     """Represents staff, with department, position, and shift hours."""
     def __init__(self, name: str, email: str, id_number: str, department: str, position: str, shift: str):
         super().__init__(name, email, id_number)
