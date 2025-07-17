@@ -1,5 +1,5 @@
 # DSA Masterbook
-This repository is basically made up of my implementation and learnings while learning Data Structures & Algorithms using Python.
+This repository is basically made up of my own data structure implementations while learning Data Structures & Algorithms using Python.
 
 Use this to track :
 1. Problem solutions of interesting/tough dsa problems
