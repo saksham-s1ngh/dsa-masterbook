@@ -63,6 +63,8 @@ class Fraction:
         new_den = self.den * other_fraction.den
         return Fraction(new_num, new_den)
 
+    __radd__ = __add__
+
     def show(self):
         print("{:d}/{:d}".format(self.num, self.den))
 
