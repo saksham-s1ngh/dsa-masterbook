@@ -1,4 +1,4 @@
-class ListNode():
+class Node():
     # defines the node having a val attribute that can take any value of type T (Generic)
     #   and the next pointer can either point to another ListNode or nothing(None)
     def __init__(self, val = None, next = None): 

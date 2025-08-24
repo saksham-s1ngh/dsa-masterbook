@@ -1,4 +1,4 @@
-from listNode import ListNode
+from ds_implementations.node import Node
 
 class LinkedList2():
     def __init__(self):
@@ -9,24 +9,24 @@ class LinkedList2():
     def insert_at(self, index, node_value):
         if index == 0:
             if self.head:
-                node = ListNode(node_value)
+                node = Node(node_value)
                 node.next = self.head
                 self.head = node
             else: 
-                node = ListNode(node_value)
+                node = Node(node_value)
                 self.head = node
             self.length +=1
 
         elif index <= self.length:
             if self.head:
-                node = ListNode(node_value)
+                node = Node(node_value)
                 current = self.head
                 for _ in range(index - 1):
                     current = current.next
                 node.next = current.next
                 current.next = node
             else: 
-                node = ListNode(node_value)
+                node = Node(node_value)
                 self.head = node  
             self.length +=1
 
