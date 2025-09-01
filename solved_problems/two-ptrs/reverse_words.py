@@ -14,7 +14,8 @@ def reverse_words(sentence):
 
         word = sentence[left+1:right+1] # extract word
 
-        result_str += word + " "
+        if left != right:
+            result_str += word + " "
         
         # move right ptr to last char of the next word
         right = left - 1
