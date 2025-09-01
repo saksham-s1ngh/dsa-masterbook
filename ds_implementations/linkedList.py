@@ -56,11 +56,19 @@ class LinkedList:
             prev = cur_node
             cur_node = cur_node.next
 
-        if cur_node is None: # key not in list
-            return 
+        if cur_node is None: # key not found in list
+            return # no node is deleted
 
         prev.next = cur_node.next
         cur_node = None
+
+    def delete_node_at_pos(self, pos):
+        if self.head:
+            cur_node = self.head
+            if pos == 0:
+                self.head = cur_node.next
+                cur_node = None
+                return 
 
     def remove_from_end(self):
         if self.length == 0:
