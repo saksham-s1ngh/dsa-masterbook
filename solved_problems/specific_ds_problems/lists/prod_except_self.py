@@ -33,6 +33,31 @@ def find_product(nums):
 
     return products
 
+def find_product_opt(nums):
+
+    # Optimised method (Problem asks for O(n) soln.)
+    products = []
+    
+    # Calculate products of elems starting from left
+    # This loop successively stores prod. of all elems on left of 
+    #   current elem in loop.
+    left = 1
+    for i in range(len(nums)):
+        products.append(left)
+        left *= nums[i]
+    
+    # Now, using the left prods. stored in "products" array,
+    #   take a "right" variable to traverse in the reverse direction
+    #   and multiply left prods. successively with prods. of all elems on the right. 
+    #   Update the right variable each time to store
+    #   the running total product.
+    right = 1
+    for i in range(len(nums)-1, -1, -1):
+        products[i] *= right
+        right *= nums[i]
+
+    return products
+
 def main():
     inputs = [
         [1, 2, 3, 4],   
@@ -44,7 +69,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tArray: ", inputs[i], sep="")
-        print("\n\tList of products: ", find_product(inputs[i]), sep="")
+        print("\n\tList of products: ", find_product_opt(inputs[i]), sep="")
         print("-" * 100)
 
 if __name__ == "__main__":
