@@ -9,7 +9,7 @@ def find_first_unique(nums):
     #   (which is the first non-repeating integer).
     non_rpt = {}
     for num in nums:
-        if num in non_rpt:
+        if num in non_rpt: # this step adds O(n) complexity
             non_rpt.pop(num)
         else:
             non_rpt[num] = 1
@@ -38,6 +38,24 @@ def find_first_unique_brute(nums):
     
     return None
     
+def find_first_unique_opt(nums):
+    
+    # optimised method: store frequencies then return the first num
+    #   with 1 occurrence.
+
+    # First pass to store frequencies
+    freq = {}
+    for num in nums:
+        # the dict.get(key, 0) statement tries to fetch a value
+        #   for the given key, and if not found sets it to the
+        #   given value which is 0 here.
+        freq[num] = freq.get(num, 0) + 1
+    
+    for num in nums:
+        if freq[num] == 1:
+            return num
+
+    return None
 
 # Driver code
 def main():
@@ -52,7 +70,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tInput list: ", inputs[i], sep="")
-        print("\n\tfirst unique number: ", find_first_unique_brute(inputs[i]), sep="")
+        print("\n\tfirst unique number: ", find_first_unique_opt(inputs[i]), sep="")
         print("-" * 100)
 
 if __name__ == "__main__":
