@@ -1,3 +1,14 @@
+"""
+Problem link: https://www.educative.io/courses/data-structures-coding-interviews-python/challenge-first-non-repeating-integer-in-a-list
+
+Challenge: First Non-Repeating Integer in a List
+Try to solve the First NonRepeating Integer in a List problem.
+
+Statement
+Given a list nums, find the first nonrepeating integer in it.
+
+"""
+
 def find_first_unique(nums):
     
     # Brute-force first attempt
