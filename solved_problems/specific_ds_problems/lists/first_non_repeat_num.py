@@ -15,6 +15,30 @@ def find_first_unique(nums):
             non_rpt[num] = 1
     return list(non_rpt.keys())[0]
 
+def find_first_unique_brute(nums):
+    
+    # Brute attempt with 2 pointers
+
+    # Traverse through the list with 1 pointer
+    for p1 in range(len(nums)):
+        p2 = 0
+
+        # use the 2nd pointer to compare with 1st
+        #   if they're equal, increment 1st pointer
+        #   else increment 2nd pointer
+        while p2 < len(nums):
+            if nums[p1] == nums[p2] and p1 != p2:
+                break
+            p2 += 1
+
+        # if the 2nd pointer traverses entire list without break
+        #   then the first pointer is pointing to the unique element.
+        if p2 == len(nums):
+            return nums[p1]
+    
+    return None
+    
+
 # Driver code
 def main():
 
@@ -28,7 +52,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tInput list: ", inputs[i], sep="")
-        print("\n\tfirst unique number: ", find_first_unique(inputs[i]), sep="")
+        print("\n\tfirst unique number: ", find_first_unique_brute(inputs[i]), sep="")
         print("-" * 100)
 
 if __name__ == "__main__":
