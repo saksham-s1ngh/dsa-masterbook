@@ -25,6 +25,19 @@ def right_rotate(nums, k):
     
     return nums
 
+def right_rotate_2(nums, k):
+
+    # basically an even shorter method utilising
+    #   list slicing.
+    # the k rotations can also be understood as the
+    #   number of elements being lifted from the end
+    #   and being placed at the beginning in the same
+    #   order.
+
+    k = k % len(nums)
+
+    return nums[len(nums) - k:] + nums[:len(nums)-k]
+
 
 def main():
     inputs = [
@@ -39,7 +52,7 @@ def main():
     for i in range(len(inputs)):
         print(i + 1, ".\tnums: ", inputs[i], sep="")
         print("\tk: ", k[i], sep="")
-        print("\n\tRotated list: ", right_rotate(inputs[i], k[i]), sep="")
+        print("\n\tRotated list: ", right_rotate_2(inputs[i], k[i]), sep="")
         print("-" * 70)
 
 if __name__ == "__main__":
