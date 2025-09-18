@@ -1,3 +1,7 @@
+"""
+Problem link: https://www.educative.io/courses/data-structures-coding-interviews-python/challenge-find-second-maximum-value-in-a-list
+"""
+
 def find_second_maximum(nums):
     if nums[0] > nums[1]:
         max = nums[0]
