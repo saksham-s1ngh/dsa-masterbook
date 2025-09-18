@@ -6,10 +6,12 @@ def find_second_maximum(nums):
         max = nums[1]
         second_max = nums[0]
 
-    for num in nums[1:]:
+    for num in nums[2:]:
         if num > max:
             second_max = max
             max = num
+        if max > num > second_max:
+            second_max = num
 
     return second_max
 
