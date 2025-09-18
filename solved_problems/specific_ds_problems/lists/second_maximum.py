@@ -15,6 +15,20 @@ def find_second_maximum(nums):
 
     return second_max
 
+def find_second_maximum_opt(nums):
+
+    first_max = second_max = float("-inf")
+
+    for num in nums:
+        if num > first_max:
+            second_max = first_max
+            first_max = num
+        
+        elif first_max > num > second_max:
+            second_max = num
+
+    return second_max
+
 def main():
     inputs = [[9, 2, 3, 6],
             [1, 2],
@@ -24,7 +38,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tList: ", inputs[i], sep="")
-        print("\n\tSecond maximum value: ", find_second_maximum(inputs[i]), sep="")
+        print("\n\tSecond maximum value: ", find_second_maximum_opt(inputs[i]), sep="")
         print("-" * 100)
 
 
