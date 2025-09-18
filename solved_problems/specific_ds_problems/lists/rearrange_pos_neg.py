@@ -32,6 +32,7 @@ def rearrange_auxL(lst):
     # Brute method : Using 2 auxilliary lists
     #   one list has negatives, other has positives
     #   separate original into these 2, then merge
+    # Suppose this method is advantageous for in-place ordering
     neg = []
     pos = []
 
@@ -43,6 +44,14 @@ def rearrange_auxL(lst):
         
     return neg + pos
 
+def rearrange_pythonic(lst):
+
+    # Pythonic solution: Same as optimal
+    #   But this employs list comprehension to filter
+    #   positives and negatives and then return them 
+    #   as a single combined list.
+
+    return [i for i in lst if i < 0] + [i for i in lst if i >= 0]
 
 def main():
     inputs = [[10, 4, 6, 23, 7],
@@ -53,7 +62,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tArray: ", inputs[i], sep="")
-        print("\n\tResult: ", rearrange_auxL(inputs[i]))
+        print("\n\tResult: ", rearrange_pythonic(inputs[i]))
         print("-" * 100)
 
 
