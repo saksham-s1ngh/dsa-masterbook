@@ -27,6 +27,23 @@ def rearrange(lst):
 
     return lst
 
+def rearrange_auxL(lst):
+
+    # Brute method : Using 2 auxilliary lists
+    #   one list has negatives, other has positives
+    #   separate original into these 2, then merge
+    neg = []
+    pos = []
+
+    for ele in lst:
+        if ele < 0:
+            neg.append(ele)
+        else:
+            pos.append(ele)
+        
+    return neg + pos
+
+
 def main():
     inputs = [[10, 4, 6, 23, 7],
               [-3, 20, -1, 8],
@@ -36,7 +53,7 @@ def main():
 
     for i in range(len(inputs)):
         print(i + 1, ".\tArray: ", inputs[i], sep="")
-        print("\n\tResult: ", rearrange(inputs[i]))
+        print("\n\tResult: ", rearrange_auxL(inputs[i]))
         print("-" * 100)
 
 
