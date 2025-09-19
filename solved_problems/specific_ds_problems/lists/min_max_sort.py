@@ -30,6 +30,26 @@ def rearrange_list(nums):
 
     return nums
 
+def rearrange_list_brute(nums):
+
+    # using an auxiliary list, iterate through list
+    #   and append max and mins in sequence each iteration
+    # max is nums[-(i+1)] and min is nums[i] on each iteration.
+
+    result = []
+    mid = len(nums)//2
+
+    for i in range(mid):
+        result.append(nums[-(i+1)])
+
+        result.append(nums[i])
+
+    if mid % 2:
+        result.append(nums[mid])
+    
+    return result
+
+
 def main():
     input_list = [[1, 2, 3, 4, 5, 6, 7, 8],
 				  [11, 22, 33, 44, 55, 66, 77, 88],
@@ -39,7 +59,7 @@ def main():
 
     for i in range(len(input_list)):
         print(i + 1, ".\tOriginal list: ", input_list[i], sep='')
-        print("\tRearranged list: ", rearrange_list(input_list[i]), sep='')
+        print("\tRearranged list: ", rearrange_list_brute(input_list[i]), sep='')
         print("-" * 100)
 
 
