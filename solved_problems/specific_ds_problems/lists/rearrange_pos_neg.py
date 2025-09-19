@@ -14,8 +14,7 @@ Constraints:
 
 def rearrange(lst):
 
-    # [1, -2, 3, -5, 4, -8, 6]
-    # MyFA. Sorting would be O(nlogn)
+    # MyFA:
     # Use a single pointer 'left' inside a loop, whenever the looping variable encounters
     #   a negative num, swap with left ptr and increment left?
 
