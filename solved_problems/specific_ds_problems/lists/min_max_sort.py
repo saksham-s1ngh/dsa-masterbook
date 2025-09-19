@@ -13,6 +13,9 @@ Constraints:
 • 0 ≤ nums.length ≤ 10^3
 • 0 ≤ nums[i] ≤ 10^5
 
+
+NOTE: There's also an encoding solution to this problem which has a similar complexity but was slighlty complex and so I haven't included it here but basically employs the principle of taking a big enough base M and using that with modulo '%' and floor division '//' operators to encode and decode 2 different values in a single place. (Cold mapping or Mathematical Embedding)
+
 """
 def rearrange_list(nums):
 
