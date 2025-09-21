@@ -8,7 +8,7 @@ from PrintList import print_list_with_forward_arrow
 #         self.data = data
 #         self.next = None
 
-def delete(head, value):
+def delete_my(head, value):
     
     # Replace this placeholder return statement with your code
     # NOTE: THIS CODE ACTUALLY DOESN'T AFFECT THE LIST SINCE IN AN ACTUAL DELETION METHOD FOR A LINKEDLIST
@@ -32,6 +32,31 @@ def delete(head, value):
         curr_node = curr_node.next
 
     return False
+
+def delete(head, value):
+    deleted = False
+
+    current = head
+    previous = None
+
+    # check if the head contains the value to be deleted
+    if current.data == value:
+        head = head.next
+        deleted = True
+        return deleted
+    
+    # traverse to find the node with the given value
+    while current is not None:
+        if value == current.data:
+            previous.next = current.next
+            current.next = None
+            deleted = True
+            break
+
+        previous = current
+        current = current.next
+
+    return deleted
 
 
 def main():
