@@ -6,14 +6,12 @@ class LinkedList:
     # __init__ will be used to make a LinkedList type object.
     def __init__(self):
         self.head = None
-    #get head of the linked list.    
-    def get_head(self):
-        return self.head
+
     # insert_node_at_head method will insert a LinkedListNode at head
     # of a linked list.
     def insert_node_at_head(self, node):
         if self.head:
-            node.next = self.head
+            node.next_element = self.head
             self.head = node
         else:
             self.head = node
@@ -24,6 +22,25 @@ class LinkedList:
         for x in reversed(lst):
             new_node = LinkedListNode(x)
             self.insert_node_at_head(new_node)
+
+    # returns the number of nodes in the linked list
+    def get_length(self, head):
+        temp = head
+        length = 0
+        while(temp):
+            length+=1
+            temp = temp.next_element
+        return length
+
+    # returns the node at the specified position(index) of the linked list
+    def get_node(self, head, pos):
+        if pos != -1:
+            p = 0
+            ptr = head
+            while p < pos:
+                ptr = ptr.next_element
+                p += 1
+            return ptr
     
     # __str__(self) method will display the elements of linked list.
     def __str__(self):
@@ -31,7 +48,7 @@ class LinkedList:
         temp = self.head
         while temp:
             result += str(temp.data)
-            temp = temp.next
+            temp = temp.next_element
             if temp:
                 result += ", "
         result += ""
