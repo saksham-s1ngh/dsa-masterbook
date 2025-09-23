@@ -10,7 +10,7 @@ from PrintList import print_list_with_forward_arrow
 def remove_duplicates(head):
     
     # Replace this placeholder return statement with your code
-    originals = {}
+    # originals = {}
     # temp = curr = head
     # prev = temp
     # while curr:
@@ -22,14 +22,18 @@ def remove_duplicates(head):
     #     prev = curr
     #     curr = curr.next
     
+    originals = set() # also decided to convert the dict into a set, since we only need to check for presence.
     curr = head
     prev = None
     while curr:
         if curr.data in originals:
             prev.next = curr.next
             
-        originals[curr.data] = originals.get(curr.data, 0) + 1
-        prev = curr
+        # so after the commit I realised the bug was that I was still updating the dict even after deleting the data.
+        else: # 
+            originals.add(curr.data)
+            prev = curr
+
         curr = curr.next
         
     return head
