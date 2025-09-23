@@ -11,7 +11,7 @@ class LinkedList:
     # of a linked list.
     def insert_node_at_head(self, node):
         if self.head:
-            node.next_element = self.head
+            node.next = self.head
             self.head = node
         else:
             self.head = node
@@ -29,7 +29,7 @@ class LinkedList:
         length = 0
         while(temp):
             length+=1
-            temp = temp.next_element
+            temp = temp.next
         return length
 
     # returns the node at the specified position(index) of the linked list
@@ -38,7 +38,7 @@ class LinkedList:
             p = 0
             ptr = head
             while p < pos:
-                ptr = ptr.next_element
+                ptr = ptr.next
                 p += 1
             return ptr
     
@@ -48,7 +48,7 @@ class LinkedList:
         temp = self.head
         while temp:
             result += str(temp.data)
-            temp = temp.next_element
+            temp = temp.next
             if temp:
                 result += ", "
         result += ""

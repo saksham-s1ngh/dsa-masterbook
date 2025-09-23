@@ -5,7 +5,7 @@ def print_list_with_forward_arrow(linked_list_node):
     while temp:
         print(temp.data, end=" ")  # print node value
         
-        temp = temp.next_element
+        temp = temp.next
         if temp:
             print("→", end=" ")
         else:
@@ -17,6 +17,6 @@ def print_list_with_forward_arrow_cycle(linked_list_node):
     while temp:
         print(temp.data, end=" ")  # print node value
         
-        temp = temp.next_element
+        temp = temp.next
         if temp:
             print("→", end=" ")
