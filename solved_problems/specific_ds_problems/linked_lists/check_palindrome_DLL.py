@@ -30,6 +30,8 @@ def is_palindrome(head):
         return True
 
     # Otherwise, traverse list from both sides
+    # start == end when they point to same node
+    # start.prev == end when start crosses the end pointer
     while start != end and start.prev != end:  
 
         # If data mismatches at any point, list is not a palindrome
