@@ -9,7 +9,7 @@ from PrintList import print_list_with_forward_arrow
 #         self.next = None
 
 
-def find_nth(head, n):
+def find_nth_myFA(head, n):
 
     # Replace this placeholder return statement with your code
     current = head
@@ -22,6 +22,23 @@ def find_nth(head, n):
     for _ in range(length - n):
         current = current.next
     return current
+
+def find_nth(head, n):
+
+    # Optimised method with two pointers
+    result = end = head
+    count = 0
+    while count < n and end:
+        end = end.next
+        count += 1
+    while end:
+        result = result.next
+        end = end.next
+    return result
+
+    # explanation: we first iterate through the LL upto 'n' iterations with the end variable,
+    #   after n iterations, we iterate using both result and end and since end is 'n' steps ahead
+    #   when end reaches the last node, result will point to the "nth node from the end".
 
 def main():
     input_data = (
