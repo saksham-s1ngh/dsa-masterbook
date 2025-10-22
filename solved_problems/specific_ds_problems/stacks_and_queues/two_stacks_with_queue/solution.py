@@ -1,3 +1,7 @@
+"""
+Problem url: https://www.educative.io/courses/data-structures-coding-interviews-python/challenge-implement-queue-using-stacks
+"""
+
 from Stack import MyStack
 # Push Function => stack.push(int)  //Inserts the element at top
 # Pop Function => stack.pop()       //Removes and returns the element at top
