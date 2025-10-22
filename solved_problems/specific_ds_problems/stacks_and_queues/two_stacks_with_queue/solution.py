@@ -20,10 +20,21 @@ class NewQueue:
     # Removes the element from the queue
     def dequeue(self):
         # Write your code here
-        while self.main_stack.size():
-            self.sub_stack.push(self.main_stack.pop())
+        if self.sub_stack.is_empty():
+            while self.main_stack.size():
+                self.sub_stack.push(self.main_stack.pop())
         
         return self.sub_stack.pop()
+    
+    def peek(self):
+        if self.sub_stack.is_empty():
+            while not self.main_stack.is_empty():
+                self.sub_stack.push(self.main_stack.pop())
+        
+        return self.sub_stack.peek()
+    
+    def is_empty(self):
+        return self.sub_stack.is_empty and self.main_stack.is_empty
 
 def main():
     calls = [["NewQueue","enqueue()","enqueue()","enqueue()","dequeue()"],
